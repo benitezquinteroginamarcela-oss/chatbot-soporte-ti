@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot Soporte TI - Gina 2.026</title>
+  <style>
+    /* ===== Reset básico ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   font-family: Arial, sans-serif;
+   background: linear-gradient(180deg, #f4f6f8 60%, #e9eff5 100%);
+   color: #333;
+    }
+
+  body {
+  animation: fadePage 0.6s ease-in;
+}
+
+@keyframes fadePage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    h1 {
+   background: linear-gradient(135deg, #2c3e50, #3498db);
+   color: white;
+   padding: 30px 0;
+   font-size: 28px;
+   text-align: center;
+}
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* ===== Contenedor principal ===== */
+    .main-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 30px 20px;
+    }
+
+    /* ===== Lado izquierdo ===== */
+    .left-side {
+      max-width: 600px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* ===== Tarjetas de información ===== */
+    .info-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+}
+
+    /* ===== Sección de imágenes ===== */
+    .image-section {
+      text-align: center;
+    }
+
+    .demo-img {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .demo-img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    /* ===== Lado derecho (chatbot) ===== */
+    .right-side {
+      flex: 0 0 350px;
+    }
+
+    df-messenger {
+      width: 350px;
+      height: 430px;
+      --df-messenger-bot-message: #2c3e50;
+      --df-messenger-button-titlebar-color: #2c3e50;
+      --df-messenger-font-color: rgb(220, 209, 209);
+      --df-messenger-send-icon: #2c3e50;
+      --df-messenger-user-message: #3498db;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .main-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .right-side {
+        flex: 1 1 auto;
+      }
+    }
+
+.info-card {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    width: 100%;
+    }
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.about-me {
+  background: white;
+  border-left: 5px solid #3498db;
+
+  padding: 25px;
+  border-radius: 12px;
+
+  margin: 30px auto;
+  max-width: 700px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+.about-container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-me {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  margin: 40px 0;
+  max-width: 700px;
+}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-me h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.about-me p {
+  color: #ecf0f1;
+  line-height: 1.7;
+}
+
+.page-content {
+  flex: 1;
+}
+
+.info-card h2 {
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.info-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #3498db;
+}
+
+  </style>
+</head>
+
+
+
+
+<body>
+  <div class="page-content"></div>
+  <h1>Chatbot de Soporte Técnico 💻</h1>
+  <nav class="navbar">
+  <a href="index.html">Inicio</a>
+  <a href="acerca.html">Acerca</a>
+  <a href="como-usar.html">Cómo usar</a>
+  <a href="lenguajes.html">Tecnologías</a>
+</nav>
+  
+ <div class="about-container">
+  <div class="about-me">
+
+    <div class="about-header">
+      <img src="images/avatar.png" alt="Gina Marcela" class="avatar">
+      
+      <h2>👩‍💻 Sobre mí</h2>
+    </div>
+
+    <p>
+      <p><strong>💼 Rol:</strong> Desarrolladora Frontend en formación</p>
+      Soy <strong>Gina Marcela Benitez Quintero</strong>, desarrolladora en formación apasionada por el soporte técnico
+      y la tecnología.
+    </p>
+
+    <p>
+      Me encanta aprender, enfrentar retos y construir soluciones útiles. Actualmente estoy enfocada en
+      desarrollo web y crecimiento profesional 🚀
+    </p>
+
+  </div>
+</div>
+
+  <div class="main-container">
+    <!-- Lado izquierdo: tarjetas e imágenes -->
+
+    <div class="left-side">
+    <a href="acerca.html" class="card-link">
+    <div class="info-card">
+    <h2>💡 Acerca del Chatbot</h2>
+    <p>Conoce qué es y cómo funciona este chatbot de soporte técnico.</p>
+    </div>
+    </a>
+
+  <a href="como-usar.html" class="card-link">
+  <div class="info-card">
+    <h2>🛠️ Cómo usarlo</h2>
+    <p>Aprende paso a paso cómo interactuar con el chatbot.</p>
+  </div>
+</a>
+
+<a href="lenguajes.html" class="card-link">
+  <div class="info-card">
+    <h2>🚀 Tecnologías utilizadas</h2>
+    <p>Descubre las herramientas usadas en este proyecto.</p>
+  </div>
+</a>
+      <div class="image-section">
+      </div>
+    </div>
+
+    <!-- Lado derecho: chatbot -->
+     
+    <div class="right-side">
+      <df-messenger
+        chat-title="Soporte TI"
+        agent-id="dccc1631-59a9-48b9-baff-e27d113d1a76"
+        language-code="es">
+      </df-messenger>
+    </div>
+  </div>
+
+  
+  <!-- Script oficial de Dialogflow Messenger -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+
+</div> 
+
+<footer>
+  <p>© 2026 - Proyecto desarrollado por Gina Marcela Benitez Quintero💻</p>
+</footer>
+
+</body>
+</html>
